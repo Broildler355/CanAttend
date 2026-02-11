@@ -1,1 +1,29 @@
+import java.util.ArrayList;
+
+public class CanAttend {
+
+	//precondition: 
+	//postcondition: 
+	public static boolean canAttend(ArrayList<MeetingInterval> meetings) {
+		//your implementation here
+        System.out.println(meetings);
+        for (int i = 0; i < meetings.size(); i++) {
+            for(int m = i+1; m< meetings.size(); m++) {
+				if (((meetings.get(i).getStart()-meetings.get(m).getEnd())<0) && ((meetings.get(m).getStart()-meetings.get(i).getEnd())<0))
+            }
+
+        }
+		return false; //replace me with actual logic please!
+	}
+	public static void main(String[] args) {
+		ArrayList<MeetingInterval> meet = new ArrayList<MeetingInterval>();
+		for(int i =0; i<10; i++) {
+			int start = (int)(Math.random()*2399);
+			int end = start + ((int)(Math.random()*(2399-start)));
+			meet.add(new MeetingInterval(start, end));
+		}
+		System.out.println(canAttend(meet) ? "There is no conflict with attending "+meet+" meetings":"Can't attend "+meet+" meetings due to conflict");
+		//please include additional testing here!
+	}
+}
 
